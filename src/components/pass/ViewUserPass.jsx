@@ -185,7 +185,7 @@ const ViewUserPass = () => {
                                         </td>
                                       </tr>
 
-                                      <tr style={{ textAlign: "center" }}>
+                                      <tr style={{ textAlign: "center"  , }}>
                                         <td
                                           style={{
                                             color: "#545454",
@@ -193,6 +193,7 @@ const ViewUserPass = () => {
                                             fontSize: "3em",
                                             fontWeight: 700,
                                             textTransform: "capitalize",
+                                       
                                           }}
                                         >
                                           {user.fname + " " + user.lname}

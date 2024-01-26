@@ -22,7 +22,7 @@ const ViewEventPass = () => {
     dynamicContent = editorData.map((item, index) => {
       // Common styles for different cases
       const commonStyles = {
-        fontSize: "18px",
+        fontSize: "16px",
         lineHeight: "1.5",
         marginBottom: "10px",
       };
@@ -30,7 +30,7 @@ const ViewEventPass = () => {
       switch (item.type) {
         case "paragraph":
           return (
-            <p style={{ ...commonStyles, fontSize: "20px" }} key={index}>
+            <p style={{ ...commonStyles, fontSize: "16px" }} key={index}>
               {item.data.text}
             </p>
           );
@@ -178,8 +178,9 @@ const ViewEventPass = () => {
                                           Entry Pass For
                                         </td>
                                       </tr>
+                                      <td height="15"></td>
 
-                                      <tr style={{ textAlign: "center" }}>
+                                      <tr style={{ textAlign: "center" ,  }}>
                                         <td
                                           style={{
                                             color: "#545454",
@@ -187,6 +188,7 @@ const ViewEventPass = () => {
                                             fontSize: "3em",
                                             fontWeight: 700,
                                             textTransform: "capitalize",
+
                                           }}
                                         >
                                         Full Name
@@ -245,6 +247,7 @@ const ViewEventPass = () => {
 
                                       <tr>
                                         <hr />
+                                        <td height="15"></td>
                                         
                                       </tr>
                                       <tr style={{ textAlign: "center" }}>
@@ -259,18 +262,20 @@ const ViewEventPass = () => {
                                           VENUE ADDRESS
                                         </td>
                                       </tr>
+                                      <td height="15"></td>
+                                      
 
                                       <tr style={{ textAlign: "center" }}>
                                         <td
                                           style={{
                                             color: "#000",
-                                            fontSize: "1.2em",
+                                            fontSize: "1em",
                                           }}
                                         >
                                           {data.address}
                                         </td>
                                       </tr>
-
+                                      <td height="25"></td>
                                       <tr style={{ textAlign: "center" }}>
                                         <td>
                                           <a
@@ -302,7 +307,7 @@ const ViewEventPass = () => {
                                           </a>
                                         </td>
                                       </tr>
-
+                                      <td height="15"></td>
                                       <tr>
                                         <td height="15"></td>
                                       </tr>
@@ -318,6 +323,7 @@ const ViewEventPass = () => {
                                           Event Entry: {data.time}
                                         </td>
                                       </tr>
+                                      <td height="15"></td>
 
                                       <tr>
                                         <td height="15"></td>
@@ -353,10 +359,12 @@ const ViewEventPass = () => {
                                           </a>
                                         </td>
                                       </tr>
+                                      <td height="15"></td>
                                       <tr>
                                         <hr />
                                         
                                       </tr>
+                                      <td height="15"></td>
 
                                       
                                       <tr>
