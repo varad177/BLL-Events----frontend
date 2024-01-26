@@ -65,7 +65,7 @@ const AssignTask = () => {
             return toast.success("All Users")
         })
             .catch(({ response: { data } }) => {
-                console.log(data);
+              
                 return toast.error(`Error Occured : ${data.message}`)
             })
     }

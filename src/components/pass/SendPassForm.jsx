@@ -126,7 +126,6 @@ const SendPassForm = () => {
             return toast.error("Please select the Event");
         }
 
-        console.log(passUser);
         const loading = toast.loading("wait!! sending the Entry Pass")
 
 
@@ -214,37 +213,37 @@ const SendPassForm = () => {
 
 
                         <div className="flex gap-4 mt-4 max-md:flex-col ">
-                            <div class="form-check">
+                            <div className="form-check">
                                 <input onChange={handleRoleChange}
                                     value="a"   className="input-box" class="form-check-input" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault1" />
-                                <label class="form-check-label" for="flexRadioDefault1">
+                                <label className="form-check-label" for="flexRadioDefault1">
                                     IBIS Participant
                                 </label>
                             </div>
-                            <div class="form-check">
+                            <div className="form-check">
                                 <input onChange={handleRoleChange}
                                     value="b"    className="input-box"
                                     class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
-                                <label class="form-check-label" for="flexRadioDefault2">
+                                <label className="form-check-label" for="flexRadioDefault2">
 
                                     Brand
                                 </label>
                             </div>
-                            <div class="form-check">
+                            <div className="form-check">
                                 <input onChange={handleRoleChange}
                                     value="c"   className="input-box"
                                     class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
-                                <label class="form-check-label" for="flexRadioDefault3">
+                                <label className="form-check-label" for="flexRadioDefault3">
 
                                     Attendies
                                 </label>
                             </div>
-                            <div class="form-check">
+                            <div className="form-check">
                                 <input onChange={handleRoleChange}
                                     value="d"   className="input-box"
                                     class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" />
-                                <label class="form-check-label" for="flexRadioDefault4">
+                                <label className="form-check-label" for="flexRadioDefault4">
 
                                     Event Crew
                                 </label>

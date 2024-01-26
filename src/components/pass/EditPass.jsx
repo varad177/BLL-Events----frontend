@@ -30,7 +30,7 @@ const EditPass = () => {
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
-    console.log(currentPage + 1);
+  
   };
 
   const [totalEntries, setTotalEntries] = useState(0);
@@ -54,8 +54,8 @@ const EditPass = () => {
       .post("/get-all-passUser", { search: search.search, page: currentPage })
       .then((res) => {
         if (res.status === 200) {
-          console.log(res.data);
-          // toast.dismiss(loading);
+       
+       
           setPassUser(res.data);
           setLoader(false);
         }
@@ -193,7 +193,7 @@ const EditPass = () => {
                           <div className="flex flex-col justify-center items-center gap-2 ">
                             <i
                               onClick={() => navigate(`/send-pass/${user._id}`)}
-                              class="fa-solid fa-pen-to-square text-red-600 hover:scale-150 duration-75"
+                              className="fa-solid fa-pen-to-square text-red-600 hover:scale-150 duration-75"
                             ></i>
                           </div>
                         )}
@@ -222,7 +222,7 @@ const EditPass = () => {
                           <div className="flex py-4 px-2  w-fit   items-center gap-8 ">
                             <i
                               onClick={() => navigate(`/send-pass/${user._id}`)}
-                              class="fa-solid fa-pen-to-square text-red-600"
+                              className="fa-solid fa-pen-to-square text-red-600"
                             ></i>
                           </div>
                         </AnimationWrapper>

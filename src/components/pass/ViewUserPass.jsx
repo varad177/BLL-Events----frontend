@@ -12,7 +12,7 @@ const ViewUserPass = () => {
   const data = pass;
 
   const editorContent = editor;
-  console.log(editorContent);
+
 
   let dynamicContent;
 
@@ -66,12 +66,12 @@ const ViewUserPass = () => {
     });
   }
 
-  // console.log("the dyvbsh", dynamicContent);
+  
 
   useEffect(() => {
     api.post("/get-pass-by-id", { userId }).then((res) => {
       if (res.status === 200) {
-        console.log(res.data.response.passID);
+      
         setPass(res.data.response.passID);
         setUSer(res.data.response);
 
@@ -142,10 +142,10 @@ const ViewUserPass = () => {
                     }}
                   >
                     <tbody>
-                      <tr class="noprint2">
+                      <tr className="noprint2">
                         <td height="15"></td>
                       </tr>
-                      <tr class="noprint2 flex justify-end px-4">
+                      <tr className="noprint2 flex justify-end px-4">
                         <button className="px-4 py-2 text-red-600 border border-red-500 rounded-md  font-bold hover:bg-red-400 hover:text-white duration-100" onClick={printContent}>Save Pass</button>
                       </tr>
                       <tr>
@@ -155,7 +155,7 @@ const ViewUserPass = () => {
                             border="0"
                             cellpadding="0"
                             cellspacing="0"
-                            class="table"
+                            className="table"
                           >
                             <tbody>
                               <tr>
@@ -166,7 +166,7 @@ const ViewUserPass = () => {
                                     cellpadding="0"
                                     cellspacing="0"
                                     border="0"
-                                    class="table"
+                                    className="table"
                                   >
                                     <tbody>
                                       <tr>
@@ -289,7 +289,7 @@ const ViewUserPass = () => {
                                           >
                                             <button
                                               type="button"
-                                              class="btnclick"
+                                              className="btnclick"
                                               style={{
                                                 width: "50%",
                                                 padding: "10px",
@@ -301,7 +301,7 @@ const ViewUserPass = () => {
                                               }}
                                             >
                                               <span>
-                                                <i class="fas fa-angle-double-right"></i>{" "}
+                                                <i className="fas fa-angle-double-right"></i>{" "}
                                               </span>
                                               Google Map Location
                                             </button>
@@ -340,7 +340,7 @@ const ViewUserPass = () => {
                                           >
                                             <button
                                               type="button"
-                                              class="btnclick"
+                                              className="btnclick"
                                               style={{
                                                 width: "50%",
                                                 padding: "10px",
@@ -352,7 +352,7 @@ const ViewUserPass = () => {
                                               }}
                                             >
                                               <span>
-                                                <i class="fas fa-angle-double-right"></i>{" "}
+                                                <i className="fas fa-angle-double-right"></i>{" "}
                                               </span>
                                               Click here to view event details
                                             </button>

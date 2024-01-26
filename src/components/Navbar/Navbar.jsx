@@ -19,7 +19,7 @@ const Navbar = () => {
     }
     const closedhandleBar = () => {
         setShowSlider(false)
-        console.log(showSlider);
+      
     }
     const handleRightBar = () => {
         setshowRightSlider(preval => !preval)
@@ -27,14 +27,14 @@ const Navbar = () => {
     }
     const closedRighthandleBar = () => {
         setshowRightSlider(false)
-        console.log(showSlider);
+     
     }
 
 
     const handleSignOut = () => {
         sessionStorage.clear();
         setUserAuth({ 'token': null })
-        console.log(userAuth);
+      
 
          navigate('/login')
 
@@ -78,7 +78,7 @@ const Navbar = () => {
 
                         <div className='flex flex-col gap-2 '>
                             <h2 className='text-xl text-gray-600 '>Admin</h2>
-                            <i class="fa-solid fa-envelope text-xl text-[#346BAE]"></i>
+                            <i className="fa-solid fa-envelope text-xl text-[#346BAE]"></i>
 
                             <button onClick={handleSignOut} className='text-[16px] w-fit font-bold text-[#F75D6D] bg-[#FFE2E5] rounded-xl py-1 px-3'>
 
@@ -118,7 +118,7 @@ const Navbar = () => {
 
                 <svg onClick={handleBar} className='max-md:hidden mr-5 h-8 w-8' xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
 
                         <rect x="0" y="0" width="24" height="24"></rect>
 
@@ -139,13 +139,13 @@ const Navbar = () => {
 
                 <svg onClick={handleRightBar} className='mr-4 max-sm:mr-0 opacity-40' xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
 
                         <polygon points="0 0 24 0 24 24 0 24"></polygon>
 
-                        <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
+                        <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fillRule="nonzero" opacity="0.3"></path>
 
-                        <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"></path>
+                        <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fillRule="nonzero"></path>
 
                     </g>
 

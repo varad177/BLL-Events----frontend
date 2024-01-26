@@ -16,7 +16,7 @@ const HomeCards = () => {
     useEffect(() => {
 
         const userFromStorage = JSON.parse(userinstorage);
-        console.log(userFromStorage);
+       
 
 
         if (!userFromStorage || !userFromStorage._id) {
@@ -41,7 +41,7 @@ const HomeCards = () => {
             return navigate('/login')
         }
         setUserAuth(data)
-        console.log(userAuth);
+      
 
         if (userAuth && userAuth.token == null) {
             navigate("/login");

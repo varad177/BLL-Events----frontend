@@ -57,7 +57,7 @@ const ResetPassWord = () => {
             })
             .catch(({ response }) => {
                 toast.dismiss(loading);
-                console.log(response.data.error);
+              
                 toast.error(response.data.error)
             })
 

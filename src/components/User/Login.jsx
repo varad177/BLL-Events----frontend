@@ -66,7 +66,7 @@ const Login = () => {
 
 
                     sessionStorage.setItem('user', JSON.stringify(obj))
-                    console.log(res.data);
+                    
 
                     setUserAuth({
                         'token': res.data.access_token,

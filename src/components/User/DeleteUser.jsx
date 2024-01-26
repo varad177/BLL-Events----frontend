@@ -56,7 +56,7 @@ const DeleteUser = () => {
         return toast.success("All Users");
       })
       .catch(({ response: { data } }) => {
-        console.log(data);
+       
         return toast.error(`Error Occured : ${data.message}`);
       });
   };
@@ -77,7 +77,7 @@ const DeleteUser = () => {
         toast.success("User deleted successfully");
       })
       .catch(({ response: { data } }) => {
-        console.log(data);
+       
         toast.error(`Error Occurred: ${data.message}`);
       });
   };

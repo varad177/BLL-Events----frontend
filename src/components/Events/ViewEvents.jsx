@@ -24,7 +24,7 @@ const ViewEvents = () => {
   const [events, setEvents] = useState([])
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
-    console.log(currentPage + 1);
+   
   };
 
   const [totalEntries, setTotalEntries] = useState(0);
@@ -131,7 +131,7 @@ const ViewEvents = () => {
                             onClick={() =>
                               navigate(`/view-event-pass/${event._id}`)
                             }
-                            class="fa-solid fa-eye text-red-600 hover:scale-150 duration-75"
+                            className="fa-solid fa-eye text-red-600 hover:scale-150 duration-75"
                           ></i>
                         </div>
                       </AnimationWrapper>

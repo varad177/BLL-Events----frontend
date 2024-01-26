@@ -12,7 +12,7 @@ const ViewEventPass = () => {
   const data = pass;
 
   const editorContent = editor;
-  console.log(editorContent);
+
 
   let dynamicContent;
 
@@ -66,13 +66,13 @@ const ViewEventPass = () => {
     });
   }
 
-  // console.log("the dyvbsh", dynamicContent);
+
 
   useEffect(() => {
     api.post("/get-pass-by-passId", { passId }).then((res) => {
       if (res.status === 200) {
 
-        console.log(res.data);
+   
        
         setPass(res.data);
     
@@ -138,7 +138,7 @@ const ViewEventPass = () => {
                     }}
                   >
                     <tbody>
-                      <tr class="noprint2">
+                      <tr className="noprint2">
                         <td height="15"></td>
                       </tr>
                       <tr>
@@ -148,7 +148,7 @@ const ViewEventPass = () => {
                             border="0"
                             cellpadding="0"
                             cellspacing="0"
-                            class="table"
+                            className="table"
                           >
                             <tbody>
                               <tr>
@@ -159,7 +159,8 @@ const ViewEventPass = () => {
                                     cellpadding="0"
                                     cellspacing="0"
                                     border="0"
-                                    class="table"
+                                    classN
+                                    ="table"
                                   >
                                     <tbody>
                                       <tr>
@@ -282,7 +283,7 @@ const ViewEventPass = () => {
                                           >
                                             <button
                                               type="button"
-                                              class="btnclick"
+                                              className="btnclick"
                                               style={{
                                                 width: "50%",
                                                 padding: "10px",
@@ -294,7 +295,7 @@ const ViewEventPass = () => {
                                               }}
                                             >
                                               <span>
-                                                <i class="fas fa-angle-double-right"></i>{" "}
+                                                <i className="fas fa-angle-double-right"></i>{" "}
                                               </span>
                                               Google Map Location
                                             </button>
@@ -333,7 +334,7 @@ const ViewEventPass = () => {
                                           >
                                             <button
                                               type="button"
-                                              class="btnclick"
+                                              className="btnclick"
                                               style={{
                                                 width: "50%",
                                                 padding: "10px",
@@ -345,7 +346,7 @@ const ViewEventPass = () => {
                                               }}
                                             >
                                               <span>
-                                                <i class="fas fa-angle-double-right"></i>{" "}
+                                                <i className="fas fa-angle-double-right"></i>{" "}
                                               </span>
                                               Click here to view event details
                                             </button>

@@ -25,7 +25,7 @@ const DeleteEvents = () => {
   const [events, setEvents] = useState([])
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
-    console.log(currentPage + 1);
+   
   };
 
   const [totalEntries, setTotalEntries] = useState(0);
@@ -161,7 +161,7 @@ const DeleteEvents = () => {
                           <i
                             onClick={() => handleDelete(event._id)}
                             
-                            class="fa-solid fa-trash text-red-600 hover:scale-150 duration-75"
+                            className="fa-solid fa-trash text-red-600 hover:scale-150 duration-75"
                           ></i>
                         </div>
                       </AnimationWrapper>

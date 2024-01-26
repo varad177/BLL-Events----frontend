@@ -24,7 +24,7 @@ const EditEvents = () => {
   const [events, setEvents] = useState([])
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
-    console.log(currentPage + 1);
+  
   };
 
   const [totalEntries, setTotalEntries] = useState(0);
@@ -132,7 +132,7 @@ const EditEvents = () => {
                               navigate(`/create-event/${event._id}`)
                             }
                             
-                            class="fa-solid fa-pen-to-square text-red-600 hover:scale-150 duration-75"
+                            className="fa-solid fa-pen-to-square text-red-600 hover:scale-150 duration-75"
                           ></i>
                         </div>
                       </AnimationWrapper>

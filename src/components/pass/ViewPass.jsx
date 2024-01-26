@@ -32,7 +32,7 @@ const ViewPass = () => {
   const handlePageChange = (event, value) => {
 
     setCurrentPage(value);
-    console.log(currentPage + 1);
+    
   };
 
   const [totalEntries, setTotalEntries] = useState(0);
@@ -66,8 +66,7 @@ const ViewPass = () => {
       .then((res) => {
 
         if (res.status === 200) {
-          console.log(res.data);
-          // toast.dismiss(loading);
+         
           setPassUser(res.data);
           setLoader(false);
         }
@@ -228,12 +227,12 @@ const ViewPass = () => {
                               <i
                                 onClick={() => handleStatus(user.id, true)}
                                 ref={passref}
-                                class="fa-solid fa-circle-check text-green-500 hover:scale-150 duration-75"
+                                className="fa-solid fa-circle-check text-green-500 hover:scale-150 duration-75"
                               ></i>
                             )}
                             <i
                               onClick={() => navigate(`/view-user-pass/${user.id}`)}
-                              class="fa-solid fa-eye text-red-600 hover:scale-150 duration-75"
+                              className="fa-solid fa-eye text-red-600 hover:scale-150 duration-75"
                             ></i>
                           </div>
                         )}
@@ -260,12 +259,12 @@ const ViewPass = () => {
                               <i
                                 onClick={() => handleStatus(user.id, true)}
                                 ref={passref}
-                                class="fa-solid fa-circle-check text-green-500"
+                                className="fa-solid fa-circle-check text-green-500"
                               ></i>
                             )}
                             <i
                               onClick={() => navigate(`/view-user-pass/${user.id}`)}
-                              class="fa-solid fa-eye text-red-600"
+                              className="fa-solid fa-eye text-red-600"
                             ></i>
                           </div>
                         </AnimationWrapper>

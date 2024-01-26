@@ -103,9 +103,7 @@ const CreateEvents = () => {
             formData.append("date", pass.date);
             passId && formData.append('passId' , passId)
 
-            for (const [key, value] of formData.entries()) {
-                console.log(`${key}: ${value}`);
-            }
+            
 
 
             const response = await api.post('/create-pass', formData, {

@@ -13,7 +13,7 @@ const getUser = async () => {
 
   try {
     const res = await api.post("/get-user", { _id });
-    console.log(res.data);
+
 
     return {
       token: token,
