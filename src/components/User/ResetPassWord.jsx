@@ -5,6 +5,7 @@ import Navbar from '../Navbar/Navbar'
 import api from '../../axios/axios'
 import { UserContext } from '../../App'
 import toast from 'react-hot-toast'
+import AnimationWrapper from '../Animation-wrapper/AnimationWrapper'
 
 const ResetPassWord = () => {
 
@@ -57,7 +58,7 @@ const ResetPassWord = () => {
             })
             .catch(({ response }) => {
                 toast.dismiss(loading);
-              
+
                 toast.error(response.data.error)
             })
 
@@ -70,27 +71,31 @@ const ResetPassWord = () => {
     return (
         <div>
             <Navbar />
-            <section className='w-screen h-[100vh] bg-[#F5F7FF] p-8 -z-10 max-md:p-4'>
-                <div className='w-[96%] h-auto md:w-[80%] bg-white mx-auto rounded-md '>
-                    <div className='flex flex-col items-center p-4  '>
-                        <div className="w-full text-2xl flex justify-between max-md:flex-col max-md:items-center max-md:gap-4  ">
-                            <h1>Reset Password</h1>
-                            <button onClick={handleSubmit} className="btn">submit</button>
-                        </div>
+            <AnimationWrapper>
 
-                        <div className='p-8 flex items-center flex-col gap-8 max-md:w-full w-[50%] max-md:p-4'>
+                <section className='w-full h-[100vh] bg-[#F5F7FF] p-8 -z-10 max-md:p-4'>
+                    <div className='w-[96%] h-auto md:w-[80%] bg-white mx-auto rounded-md '>
+                        <div className='flex flex-col items-center p-4  '>
+                            <div className="w-full text-2xl flex justify-between max-md:flex-col max-md:items-center max-md:gap-4  ">
+                                <h1>Reset Password</h1>
+                                <button onClick={handleSubmit} className="btn">submit</button>
+                            </div>
 
-                            <input type="text" onChange={handleChange} value={pass.currPass} name='currPass' className='input-box w-full' placeholder='Enter Your Current Password' />
-                            <input type="text" onChange={handleChange} value={pass.newPass} name='newPass' className='input-box w-full' placeholder='Enter Your New Password' />
+                            <div className='p-8 flex items-center flex-col gap-8 max-md:w-full w-[50%] max-md:p-4'>
 
+                                <input type="text" onChange={handleChange} value={pass.currPass} name='currPass' className='input-box w-full' placeholder='Enter Your Current Password' />
+                                <input type="text" onChange={handleChange} value={pass.newPass} name='newPass' className='input-box w-full' placeholder='Enter Your New Password' />
+
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
 
 
-            </section>
+                </section>
+
+            </AnimationWrapper>
         </div>
     )
 }

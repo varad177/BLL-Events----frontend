@@ -80,7 +80,7 @@ const TaskAssignForm = () => {
             <Navbar />
 
             <AnimationWrapper>
-                <section className='w-screen h-[100vh] bg-[#F5F7FF] p-8 -z-10 max-md:p-4'>
+                <section className='w-full h-[100vh] bg-[#F5F7FF] p-8 -z-10 max-md:p-4'>
 
                     <div className='w-[96%] h-auto md:w-[80%] bg-white mx-auto rounded-md '>
                         <div className='flex flex-col items-center p-4  '>
