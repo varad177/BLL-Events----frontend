@@ -44,6 +44,9 @@ const Navbar = () => {
 
     }
 
+
+
+
     return (
         <nav className=' h-20 max-w-[100vw] flex justify-between py-4 overflow-x-hidden px-3 border border-gray-700 relative'>
 
@@ -94,7 +97,7 @@ const Navbar = () => {
 
 
                         </div>
-                        <div className='flex flex-col px-3'>
+                        <div className='flex flex-col px-3 cursor-pointer' onClick={()=>navigate('/reset-password')}>
                             <p className='font-bold text-[17px]'>security</p>
                             <p className='text-gray-300 text-[17px] font-bold'>password reset</p>
                         </div>

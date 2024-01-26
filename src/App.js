@@ -21,6 +21,7 @@ import ViewEventPass from "./components/Events/ViewEventPass";
 import DeleteUser from "./components/User/DeleteUser";
 import EditEvents from "./components/Events/EditEvents";
 import DeleteEvents from "./components/Events/DeleteEvents";
+import ResetPassWord from "./components/User/ResetPassWord";
 
 export const UserContext = createContext({});
 
@@ -66,6 +67,7 @@ function App() {
           <Route path="/delete-user" element={<DeleteUser />} />
           <Route path="/edit-event" element={<EditEvents />} />
           <Route path="/delete-event" element={<DeleteEvents />} />
+          <Route path="/reset-password" element={<ResetPassWord />} />
         </Routes>
       </Router>
     </UserContext.Provider>
