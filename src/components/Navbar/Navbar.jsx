@@ -44,17 +44,18 @@ const Navbar = () => {
 
     }
 
+console.log(userAuth);
 
 
 
     return (
-        <nav className=' h-20 max-w-[100vw] flex justify-between py-4 overflow-x-hidden px-3 border border-gray-700 relative'>
+        <nav className=' h-20 max-w-[100vw] flex justify-between py-4 overflow-x-hidden px-3 border border-gray-700 relative shadow-md'>
 
-            <div className={'fixed h-screen w-[24rem] max-sm:w-screen  border top-0 left-0 duration-500 z-10 bg-white ' + (showSlider ? ' translate-x-[0]' : ' -translate-x-[100%]')}>
-                <i onClick={closedhandleBar} className="fa-solid fa-circle-xmark absolute top-8 right-8 opacity-60 border border-gray-500 rounded-full p-2 "></i>
+            <div className={'fixed shadow-md h-screen w-[24rem] max-sm:w-screen  border top-0 left-0 duration-500 z-10 bg-white ' + (showSlider ? ' translate-x-[0]' : ' -translate-x-[100%]')}>
+                <i onClick={closedhandleBar} className="fa-solid fa-circle-xmark absolute top-8 right-8 opacity-60 border border-gray-500 rounded-full p-2 hover:text-black hover:scale-105 "></i>
 
-                <div className='w-full h-full mt-16'>
-                    <ul className='flex flex-col '>
+                <div className='w-full h-full mt-20'>
+                    <ul className='flex flex-col  '>
                         <li className='py-2 px-8 hover:bg-gray-200 hover:text-pink-600'><Link to={""}>home</Link></li>
                         <li className='py-2 px-8 hover:bg-gray-200 hover:text-pink-600'><Link to={""}>about</Link></li>
                         <li className='py-2 px-8 hover:bg-gray-200 hover:text-pink-600'><Link to={""}>contact</Link></li>
@@ -63,8 +64,8 @@ const Navbar = () => {
                 </div>
 
             </div>
-            <div className={' fixed p-3  h-screen border top-0 duration-500 z-40 bg-white ' + (showRightSlider ? ' w-[24rem] max-sm:w-screen right-0' : ' w-0 right-[-25rem]')}>
-                <i onClick={closedRighthandleBar} className="fa-solid fa-circle-xmark absolute top-8 right-8 opacity-60 border border-gray-500 rounded-full p-2 "></i>
+            <div className={' fixed shadow-md p-3  h-screen border top-0 duration-500 z-40 bg-white ' + (showRightSlider ? ' w-[24rem] max-sm:w-screen right-0' : ' w-0 right-[-25rem]')}>
+                <i onClick={closedRighthandleBar} className="fa-solid fa-circle-xmark absolute top-8 right-8 opacity-60 border border-gray-500 rounded-full p-2 hover:text-black hover:scale-105"></i>
 
                 <div className='w-full h-full mt-4'>
                     <h2 className='text-2xl font-bold'>User Profile</h2>
@@ -77,10 +78,10 @@ const Navbar = () => {
                         </div>
 
                         <div className='flex flex-col gap-2 '>
-                            <h2 className='text-xl text-gray-600 '>Admin</h2>
+                            <h2 className='text-xl text-gray-600 '>{userAuth && userAuth.role}</h2>
                             <i className="fa-solid fa-envelope text-xl text-[#346BAE]"></i>
 
-                            <button onClick={handleSignOut} className='text-[16px] w-fit font-bold text-[#F75D6D] bg-[#FFE2E5] rounded-xl py-1 px-3'>
+                            <button onClick={handleSignOut} className='text-[16px] w-fit font-bold text-[#F75D6D] bg-[#FFE2E5] rounded-xl py-1 px-3 hover:bg-[#fb93c23b]'>
 
                                 Sign out
                             </button>
@@ -91,13 +92,13 @@ const Navbar = () => {
                     </div>
                     <hr className='border mt-4 w-full' />
 
-                    <div className='flex items-center py-4'>
+                    <div className='flex items-center py-4 hover:bg-gray-100'>
                         <div className='h-8 w-8 bg-gray-100 flex items-center justify-center  rounded-lg '>
                             <i className="fa-solid fa-lock text-[#1BC5BD] text-[16px]"></i>
 
 
                         </div>
-                        <div className='flex flex-col px-3 cursor-pointer' onClick={()=>navigate('/reset-password')}>
+                        <div className='flex flex-col px-3 cursor-pointer ' onClick={()=>navigate('/reset-password')}>
                             <p className='font-bold text-[17px]'>security</p>
                             <p className='text-gray-300 text-[17px] font-bold'>password reset</p>
                         </div>

@@ -14,11 +14,12 @@ const ViewEventPass = () => {
   const editorContent = editor;
 
 
+
   let dynamicContent;
 
   if (editorContent) {
-    const editorData = JSON.parse(editorContent);
-
+    const editorData = JSON.parse(editorContent).blocks;
+    console.log(editorData);
     dynamicContent = editorData.map((item, index) => {
       // Common styles for different cases
       const commonStyles = {

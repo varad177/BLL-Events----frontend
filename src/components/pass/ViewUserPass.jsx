@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import api from "../../axios/axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import AnimationWrapper from "../Animation-wrapper/AnimationWrapper";
+import toast from "react-hot-toast";
 
 const ViewUserPass = () => {
+  const navigate = useNavigate()
   const { userId } = useParams();
   const [pass, setPass] = useState("");
   const [user, setUSer] = useState("");
   const [editor, setEditor] = useState("");
 
   const data = pass;
+
+
 
   const editorContent = editor;
 
@@ -19,7 +23,7 @@ const ViewUserPass = () => {
   if (editorContent) {
     const editorData = JSON.parse(editorContent);
 
-    dynamicContent = editorData.map((item, index) => {
+    dynamicContent = editorData.blocks.map((item, index) => {
       // Common styles for different cases
       const commonStyles = {
         fontSize: "18px",
@@ -66,12 +70,19 @@ const ViewUserPass = () => {
     });
   }
 
-  
+
 
   useEffect(() => {
     api.post("/get-pass-by-id", { userId }).then((res) => {
       if (res.status === 200) {
-      
+
+
+        if (res.data.response.passID == null) {
+          toast.error("pass is deleted from the database")
+          navigate('/attendees')
+          return
+        }
+
         setPass(res.data.response.passID);
         setUSer(res.data.response);
 
@@ -185,7 +196,7 @@ const ViewUserPass = () => {
                                         </td>
                                       </tr>
 
-                                      <tr style={{ textAlign: "center"  , }}>
+                                      <tr style={{ textAlign: "center", }}>
                                         <td
                                           style={{
                                             color: "#545454",
@@ -193,7 +204,7 @@ const ViewUserPass = () => {
                                             fontSize: "3em",
                                             fontWeight: 700,
                                             textTransform: "capitalize",
-                                       
+
                                           }}
                                         >
                                           {user.fname + " " + user.lname}
@@ -252,7 +263,7 @@ const ViewUserPass = () => {
 
                                       <tr>
                                         <hr />
-                                        
+
                                       </tr>
                                       <tr style={{ textAlign: "center" }}>
                                         <td
@@ -362,10 +373,10 @@ const ViewUserPass = () => {
                                       </tr>
                                       <tr>
                                         <hr />
-                                        
+
                                       </tr>
 
-                                      
+
                                       <tr>
                                         <td
                                           style={{
@@ -385,7 +396,7 @@ const ViewUserPass = () => {
                                 </td>
                                 <td width="5%"></td>
                               </tr>
-                             
+
                             </tbody>
                           </table>
                         </td>
@@ -494,10 +505,10 @@ const ViewUserPass = () => {
                                             lineHeight: "1.2em",
                                             textAlign: "center",
                                           }}
-                                          // style={{ fontSize: '1em',
-                                          // lineHeight: '1.2em',
-                                          // textAlign: 'center',
-                                          // borderTop: '1px solid #000',}}
+                                        // style={{ fontSize: '1em',
+                                        // lineHeight: '1.2em',
+                                        // textAlign: 'center',
+                                        // borderTop: '1px solid #000',}}
                                         >
                                           <p
                                             style={{
@@ -535,10 +546,10 @@ const ViewUserPass = () => {
                                             lineHeight: "1.2em",
                                             textAlign: "center",
                                           }}
-                                          // style={{ fontSize: '1em',
-                                          // lineHeight: '1.2em',
-                                          // textAlign: 'center',
-                                          // borderTop: '1px solid #000',}}
+                                        // style={{ fontSize: '1em',
+                                        // lineHeight: '1.2em',
+                                        // textAlign: 'center',
+                                        // borderTop: '1px solid #000',}}
                                         >
                                           <p style={{ marginBottom: 0 }}>
                                             For any queries contact : 79770

@@ -55,7 +55,7 @@ const HomeCards = () => {
 
             <div className='row p-4 md:p-5 gap-2'>
 
-                <div className='col-lg-4 lg:w-[32.8%] md:w-[49.8%]  rounded-lg col-md-6 col-sm-12 p-4 md:p-8 bg-white'>
+                <div className='col-lg-4 lg:w-[32.8%] md:w-[49.8%]  rounded-lg col-md-6 col-sm-12 p-4 md:p-8 bg-white shadow-md'>
 
                     <h2 className='mb-3 font-bold'>IBIS Entry Pass</h2>
                     <hr />
@@ -78,7 +78,7 @@ const HomeCards = () => {
 
 
                 </div>
-                <div className='col-lg-4 lg:w-[32.8%] md:w-[47%]  rounded-lg col-md-6 col-sm-12 p-4 md:p-8 bg-white '>
+                <div className='col-lg-4 lg:w-[32.8%] md:w-[47%]  rounded-lg col-md-6 col-sm-12 p-4 md:p-8 bg-white shadow-md'>
 
                     <h2 className='mb-3 font-bold'>User</h2>
                     <hr />
@@ -102,7 +102,7 @@ const HomeCards = () => {
 
 
                 </div>
-                <div className='col-lg-4 lg:w-[32.8%] md:w-[49.8%]  rounded-lg col-md-6 col-sm-12 p-4 md:p-8 bg-white'>
+                <div className='col-lg-4 lg:w-[32.8%] md:w-[49.8%]  rounded-lg col-md-6 col-sm-12 p-4 md:p-8 bg-white shadow-md'>
 
                     <h2 className='mb-3 font-bold'>Events</h2>
                     <hr />

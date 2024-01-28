@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import api from "../../axios/axios";
 import EditorJS from "@editorjs/editorjs";
 import { tools } from "./Tools";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import EventContent from "./EventContent";
 
 const CreateEvents = () => {
@@ -21,45 +21,78 @@ const CreateEvents = () => {
         location: "",
         time: "",
         details: "",
-        mobno1: "",
-        mobno2: "",
+        mobno1: null,
+        mobno2: null,
         editor: "",
     });
 
     const [editorInstance, setEditorInstance] = useState(null);
-    const [editorData, setEditorDate] = useState(null);
+
 
     useEffect(() => {
+        const fetchData = async () => {
+            try {
+                if (passId) {
+                    // Fetch existing pass data if passId is provided
+                    const response = await api.post('/get-pass-by-passId', { passId });
+                   
+                    const passData = response.data;
+                    setPass(passData);
+                    if (passData.editor !== undefined && passData.editor !== null) {
 
-        if (passId) {
-            api.post('/get-pass-by-passId', { passId }).then((res) => {
-                setPass(res.data);
-                setEditorDate(JSON.parse(res.data.editor[0]))
-            })
-                .catch(err => {
-                    console.log(err.message);
-                })
-        }
+                        setPass((prevPass) => ({
+                            ...prevPass,
+                            editor: JSON.parse(passData.editor[0]),
+                        }));
+                        console.log(pass);
+                   
+                        const editorInstance = new EditorJS({
+                            holderId: "text-Editor",
+                            data: Array.isArray(passData.editor) ? JSON.parse(passData.editor[0]) : passData.editor,
+                            tools: tools, // Define your tools array
+                            placeholder: "Write Anything You Want",
+                            onChange: () => handleEditorChange(editorInstance),
+                            onReady: () => {
+                                console.log("Editor2 is ready");
+                            },
+                        });
 
-        // Create EditorJS instance
-        const instance = new EditorJS({
-            holderId: "text-Editor",
-            data: Array.isArray(pass.editor) ? pass.editor[0] : pass.editor,
-            tools: tools,
-            placeholder: "Write Anything You want",
-            onChange: () => handleEditorChange(instance),
-        });
+                     
+                        setEditorInstance(editorInstance);
 
+                        // Cleanup the editor instance when the component is unmounted or when passId changes
+                        return () => {
+                            editorInstance.destroy();
+                        };
+                    }
+                } else {
+                    // Create a new EditorJS instance if there is no passId
+                    const editorInstance = new EditorJS({
+                        holderId: "text-Editor",
+                        tools: tools, // Define your tools array
+                        placeholder: "Write Anything You Want",
+                        onChange: () => handleEditorChange(editorInstance),
+                        onReady: () => {
+                            console.log("Editor1 is ready");
+                        },
+                    });
 
+                    setEditorInstance(editorInstance);
 
-        // Save the instance in state
-        setEditorInstance(instance);
-
-        // Cleanup the editor instance when the component is unmounted
-        return () => {
-            instance.destroy();
+                    // Cleanup the editor instance when the component is unmounted or when passId changes
+                    return () => {
+                        editorInstance.destroy();
+                    };
+                }
+            } catch (error) {
+                console.error(error.message);
+            }
         };
-    }, []);
+
+        fetchData();
+    }, [passId]);
+
+
 
     const handleEditorChange = async (instance) => {
         // Get the current content from the editor
@@ -71,23 +104,23 @@ const CreateEvents = () => {
             editor: editorData,
         }));
     };
-
+    
+    const navigate = useNavigate()
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (!pass.avatar) {
-            return toast.error("Please upload the logo");
-        }
-
-        if (!pass.heading) {
-            return toast.error("Please enter the heading");
-        }
-
-        // Add validations for other fields...
-
         const loading = toast.loading("Wait! Creating the pass");
+
+        if (!passId && !pass.avatar) {
+            toast.dismiss(loading)
+            return toast.error("pleased upload the image")
+        }
+        if (!passId && !pass.editor) {
+            toast.dismiss(loading)
+            return toast.error("write something in editor")
+        }
+
 
         try {
             const formData = new FormData();
@@ -99,33 +132,46 @@ const CreateEvents = () => {
             formData.append("details", pass.details);
             formData.append("mobno1", pass.mobno1);
             formData.append("mobno2", pass.mobno2);
-            formData.append("editor", JSON.stringify(pass.editor.blocks))
+            formData.append("editor", JSON.stringify(pass.editor))
             formData.append("date", pass.date);
-            passId && formData.append('passId' , passId)
-
-            
+            passId && formData.append('passId', passId)
 
 
-            const response = await api.post('/create-pass', formData, {
+
+
+
+
+
+            api.post('/create-pass', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
-            });
+            }).then((response) => {
+                toast.dismiss(loading);
+                toast.success(response.data.message);
+                setPass({
+                    avatar: "",
+                    heading: "",
+                    address: "",
+                    location: "",
+                    time: "",
+                    details: "",
+                    mobno1: null,
+                    mobno2: null,
+                    editor: "",
+                    date: ""
+                })
 
-            toast.dismiss(loading);
-            toast.success(response.data.message);
-            setPass({
-                avatar: "",
-                heading: "",
-                address: "",
-                location: "",
-                time: "",
-                details: "",
-                mobno1: "",
-                mobno2: "",
-                editor: "",
-                date: ""
+            if(passId){
+                navigate('/edit-event')
+            }
+                
+            }).catch(({ response }) => {
+                toast.dismiss(loading);
+                toast.error(response.data.error)
             })
+
+
         } catch (error) {
             toast.dismiss(loading);
             toast.error("An error occurred while creating the pass");
@@ -273,7 +319,7 @@ const CreateEvents = () => {
 
                 <div id="text-Editor" className="mt-8 border"></div>
 
-                <div className='my-12 font-gelasio blog-page-content'>
+                {/* <div className='my-12 font-gelasio blog-page-content'>
                     {
 
                         editorData != null && editorData.map((block, i) => {
@@ -285,7 +331,7 @@ const CreateEvents = () => {
                     }
 
 
-                </div>
+                </div> */}
 
 
             </section>
