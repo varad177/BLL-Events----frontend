@@ -36,7 +36,7 @@ const EditPass = () => {
   const [totalEntries, setTotalEntries] = useState(0);
 
   useEffect(() => {
-    api.get("/get-entries-count").then((res) => {
+    api.post("/get-entries-count").then((res) => {
       setTotalEntries(res.data);
     });
 
@@ -204,7 +204,7 @@ const EditPass = () => {
                     <tr>
                       <td colSpan={7} className="border px-2 py-2">
                         <AnimationWrapper
-                          transition={{ duration: 1, delay: i * 0.1 }}
+                         
                         >
                           <p className="font-bold inline-block">Mobile No :</p>{" "}
                           {user.mobno}, <br></br>

@@ -26,6 +26,7 @@ code {
   background-color: #f26722;
   outline: none;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .btn:hover {
@@ -47,9 +48,14 @@ code {
 
 .input-box:focus {
   outline: #f64e60;
- border: 1px solid red ;
+  border: 1px solid red;
 }
 
-tbody, td, tfoot, th, thead, tr{
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
   border: none;
 }

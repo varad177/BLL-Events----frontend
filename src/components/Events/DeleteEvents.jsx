@@ -33,7 +33,7 @@ const DeleteEvents = () => {
   const {userAuth} = useContext(UserContext)
 
   useEffect(() => {
-    api.get("/get-entries-count", { status: true }).then((res) => {
+    api.post("/get-entries-count", { status: true }).then((res) => {
       setTotalEntries(res.data);
     });
 

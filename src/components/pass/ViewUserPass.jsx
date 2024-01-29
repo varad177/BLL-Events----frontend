@@ -79,7 +79,7 @@ const ViewUserPass = () => {
 
         if (res.data.response.passID == null) {
           toast.error("pass is deleted from the database")
-          navigate('/attendees')
+          navigate(-1)
           return
         }
 

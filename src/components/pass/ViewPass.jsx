@@ -40,7 +40,7 @@ const ViewPass = () => {
   const passref = useRef();
   useEffect(() => {
 
-    api.get('/get-entries-count').then((res) => {
+    api.post('/get-entries-count').then((res) => {
 
       setTotalEntries(res.data)
 
@@ -244,7 +244,7 @@ const ViewPass = () => {
 
 
                       <td colSpan={7} className="border px-2 py-2">
-                        <AnimationWrapper transition={{ duration: 1, delay: i * 0.1 }}>
+                        <AnimationWrapper >
                           <p className="font-bold inline-block">Mobile No :</p> {user.mobno}, <br></br>
                           <p className="font-bold inline-block"> Email:</p> {user.email}, <br></br><p className="font-bold inline-block">Category:{" "} </p> {user.category},
                           <br></br> <p className="font-bold inline-block">Status:{" "} </p>{user.status} <br></br>

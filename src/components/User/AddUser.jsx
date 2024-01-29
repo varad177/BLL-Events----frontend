@@ -111,21 +111,21 @@ const AddUser = () => {
                     </Box>
                 }
                 <section className="w-full flex justify-center h-screen bg-[#F5F7FF] ">
-                    <div className=" flex items-center justify-center flex-col w-[94%] md:w-[80%]  gap-2 md:gap-4 bg-white h-fit md:p-16 p-8 mt-20 rounded-2xl">
+                    <div className=" flex shadow-md items-center justify-center flex-col w-[94%] md:w-[80%]  gap-2 md:gap-4 bg-white h-fit md:p-16 p-8 mt-20 rounded-2xl">
 
                         <div className="w-full text-2xl flex justify-between max-md:flex-col max-md:items-center max-md:gap-4 ">
                             <h1>Add User</h1>
                             <button onClick={handleSubmit} className="btn">Save User</button>
                         </div>
                         <div className="row w-full gap-2">
-                            <input onChange={handleChange} className="input-box col-md-6 col-sm-12 w-full  md:w-[47%]" value={user.fullname} type="text" name="fullname" placeholder="Enter The fullname" />
-                            <input onChange={handleChange} className="input-box col-md-6 col-sm-12 w-full  md:w-[47%]" value={user.mobno} type="text" name="mobno" placeholder="Enter The Mobile Number" />
+                            <input onChange={handleChange} className="input-box shadow-md col-md-6 col-sm-12 w-full  md:w-[47%]" value={user.fullname} type="text" name="fullname" placeholder="Enter The fullname" />
+                            <input onChange={handleChange} className="input-box shadow-md col-md-6 col-sm-12 w-full  md:w-[47%]" value={user.mobno} type="text" name="mobno" placeholder="Enter The Mobile Number" />
                         </div>
 
 
                         <div className="row w-full gap-2">
-                            <input onChange={handleChange} className="input-box col-md-6 col-sm-12 w-full  md:w-[47%] bg-transparent" value={user.email} type="email" name="email" placeholder="Enter the email" />
-                            <input onChange={handleChange} className="input-box col-md-6 col-sm-12 w-full  md:w-[47%]" value={user.password} type="password" name="password" placeholder="Enter The Password" />
+                            <input onChange={handleChange} className="input-box shadow-md col-md-6 col-sm-12 w-full  md:w-[47%] bg-transparent" value={user.email} type="email" name="email" placeholder="Enter the email" />
+                            <input onChange={handleChange} className="input-box shadow-md col-md-6 col-sm-12 w-full  md:w-[47%]" value={user.password} type="password" name="password" placeholder="Enter The Password" />
                         </div>
 
 

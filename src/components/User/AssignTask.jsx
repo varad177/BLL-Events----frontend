@@ -105,20 +105,22 @@ const AssignTask = () => {
                                                     className={`hover:bg-blue-200 transition-all duration-2000 ${isMobileScreen && expandedRows[i] ? 'border-b-2 border-blue-300' : ''
                                                         }`}
                                                 >
-                                                    <td className='border px-4 py-2'>{i + 1}</td>
-                                                    <td className='border px-4 py-2'><AnimationWrapper>
+                                                    <td className='border px-4 py-2'><AnimationWrapper   transition={{ duration: 1, delay: i * 0.1 }}>{i + 1} </AnimationWrapper></td>
+                                                    <td className='border px-4 py-2'><AnimationWrapper   transition={{ duration: 1, delay: i * 0.1 }}>
                                                         {user.fullname}</AnimationWrapper></td>
-                                                    {!isMobileScreen && <td className='border px-4 py-2'><AnimationWrapper>
+                                                    {!isMobileScreen && <td className='border px-4 py-2'><AnimationWrapper   transition={{ duration: 1, delay: i * 0.1 }}>
                                                         {user.email}</AnimationWrapper></td>}
-                                                    {!isMobileScreen && <td className='border px-4 py-2'><AnimationWrapper>
+                                                    {!isMobileScreen && <td className='border px-4 py-2'><AnimationWrapper   transition={{ duration: 1, delay: i * 0.1 }}>
                                                         {user.mobno}</AnimationWrapper></td>}
-                                                    {!isMobileScreen && <td className='border px-4 py-2'><AnimationWrapper>
+                                                    {!isMobileScreen && <td className='border px-4 py-2'><AnimationWrapper   transition={{ duration: 1, delay: i * 0.1 }}>
                                                         {user.role}</AnimationWrapper></td>}
                                                     {!isMobileScreen && (
                                                         <td className='border px-4 py-2'>
+                                                            <AnimationWrapper   transition={{ duration: 1, delay: i * 0.1 }}>
                                                             <Link to={`/assign/${user._id}`}>
                                                                 <i className='fa-solid fa-pen text-red-600 text-center'></i>
                                                             </Link>
+                                                            </AnimationWrapper>
 
                                                         </td>
                                                     )}

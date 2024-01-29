@@ -106,7 +106,7 @@ const Login = () => {
         <section className='w-screen m-0'>
             <div className='row max-h-[100vh] w-screen  '>
                 <div className='col-lg-6  h-full '>
-                    <div className='h-[15vh] max-lg:w-[100vw]  flex items-center justify-center md:shadow-lg'>
+                    <div className='h-[15vh] shadow-md max-lg:w-[100vw]  flex items-center justify-center md:shadow-lg'>
                         <img src={logo} className='img-fluid' alt="loading" />
                     </div>
                     <div className='max-lg:w-[100vw]'>
@@ -121,11 +121,11 @@ const Login = () => {
                         <div className='md:w-[60%] w-[80%] h-full flex items-center justify-center flex-col '>
                             <div className='w-full flex flex-col justify-center mb-4'>
                                 <p className='text-lg font-bold pb-[10px] '>email</p>
-                                <input ref={emailId} className='p-3 rounded-lg outline-none focus:outline-none  bg-[#E8F0FE]' type="email" placeholder='email' name='email' />
+                                <input ref={emailId} className='p-3 rounded-lg outline-none shadow-md focus:outline-none  bg-[#E8F0FE]' type="email" placeholder='email' name='email' />
                             </div>
                             <div className='w-full flex flex-col justify-center'>
                                 <p className='text-lg font-bold pb-[10px]'>password</p>
-                                <input ref={passwordvalue} className='p-3 pl-8 rounded-lg outline-none focus:outline-none   bg-[#E8F0FE]' type="password" placeholder='Enter Password' name='password' />
+                                <input ref={passwordvalue} className='p-3 pl-8 rounded-lg outline-none focus:outline-none shadow-md   bg-[#E8F0FE]' type="password" placeholder='Enter Password' name='password' />
                             </div>
 
                             <div className='w-full mt-4'>

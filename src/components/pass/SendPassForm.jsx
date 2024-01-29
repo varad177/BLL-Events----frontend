@@ -166,14 +166,14 @@ const SendPassForm = () => {
             <Navbar />
             <AnimationWrapper>
                 <section className="w-[100%] flex justify-center h-screen bg-[#F5F7FF] ">
-                    <div className=" flex items-center justify-center flex-col w-[94%] md:w-[80%]  gap-2 md:gap-4 bg-white h-fit md:p-16 p-8 mt-20 rounded-2xl">
+                    <div className=" flex shadow-md items-center justify-center flex-col w-[94%] md:w-[80%]  gap-2 md:gap-4 bg-white h-fit md:p-16 p-8 mt-20 rounded-2xl">
 
                         <div className="w-full text-2xl flex justify-between max-md:flex-col max-md:items-center max-md:gap-4">
                             <h1>Add Entry Pass</h1>
                             <button onClick={handleSubmit} className="btn">Save And Send</button>
                         </div>
 
-                        <div className="mt-4 w-full md:w-[60%]">
+                        <div className="mt-4 w-full md:w-[60%] shadow-md">
 
                             <Box sx={{ minWidth: '100%' }}>
                                 <FormControl fullWidth>
@@ -199,14 +199,14 @@ const SendPassForm = () => {
                         </div>
 
                         <div className="row w-full gap-2">
-                            <input onChange={handleChange} className="input-box col-md-6 col-sm-12 w-full  md:w-[47%]" value={passUser.fname} type="text" name="fname" placeholder="Enter The first name" />
-                            <input onChange={handleChange} className="input-box col-md-6 col-sm-12 w-full  md:w-[47%]" value={passUser.lname} type="text" name="lname" placeholder="Enter The last name" />
+                            <input onChange={handleChange} className="input-box shadow-md col-md-6 col-sm-12 w-full  md:w-[47%]" value={passUser.fname} type="text" name="fname" placeholder="Enter The first name" />
+                            <input onChange={handleChange} className="input-box  shadow-md col-md-6 col-sm-12 w-full  md:w-[47%]" value={passUser.lname} type="text" name="lname" placeholder="Enter The last name" />
                         </div>
 
 
                         <div className="row w-full gap-2">
-                            <input onChange={handleChange} className="input-box col-md-6 col-sm-12 w-full  md:w-[47%] bg-transparent" value={passUser.email} type="email" name="email" placeholder="Enter the email" />
-                            <input onChange={handleChange} className="input-box col-md-6 col-sm-12 w-full  md:w-[47%]" value={passUser.mobno} type="number" name="mobno" placeholder="Enter The Mobile Number" />
+                            <input onChange={handleChange} className="input-box shadow-md col-md-6 col-sm-12 w-full  md:w-[47%] bg-transparent" value={passUser.email} type="email" name="email" placeholder="Enter the email" />
+                            <input onChange={handleChange} className="input-box shadow-md col-md-6 col-sm-12 w-full  md:w-[47%]" value={passUser.mobno} type="number" name="mobno" placeholder="Enter The Mobile Number" />
                         </div>
 
 
@@ -215,7 +215,7 @@ const SendPassForm = () => {
                         <div className="flex gap-4 mt-4 max-md:flex-col ">
                             <div className="form-check">
                                 <input onChange={handleRoleChange}
-                                    value="a"   className="input-box" class="form-check-input" type="radio" name="flexRadioDefault"
+                                    value="a"   className="input-box" class="form-check-input shadow-md" type="radio" name="flexRadioDefault"
                                     id="flexRadioDefault1" />
                                 <label className="form-check-label" for="flexRadioDefault1">
                                     IBIS Participant
@@ -224,7 +224,7 @@ const SendPassForm = () => {
                             <div className="form-check">
                                 <input onChange={handleRoleChange}
                                     value="b"    className="input-box"
-                                    class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                                    class="form-check-input shadow-md" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
                                 <label className="form-check-label" for="flexRadioDefault2">
 
                                     Brand
@@ -233,7 +233,7 @@ const SendPassForm = () => {
                             <div className="form-check">
                                 <input onChange={handleRoleChange}
                                     value="c"   className="input-box"
-                                    class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
+                                    class="form-check-input shadow-md" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
                                 <label className="form-check-label" for="flexRadioDefault3">
 
                                     Attendies
@@ -242,7 +242,7 @@ const SendPassForm = () => {
                             <div className="form-check">
                                 <input onChange={handleRoleChange}
                                     value="d"   className="input-box"
-                                    class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" />
+                                    class="form-check-input shadow-md" type="radio" name="flexRadioDefault" id="flexRadioDefault4" />
                                 <label className="form-check-label" for="flexRadioDefault4">
 
                                     Event Crew

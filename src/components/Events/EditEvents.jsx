@@ -30,7 +30,7 @@ const EditEvents = () => {
   const [totalEntries, setTotalEntries] = useState(0);
 
   useEffect(() => {
-    api.get("/get-entries-count", { status: true }).then((res) => {
+    api.post("/get-entries-count", { status: true }).then((res) => {
       setTotalEntries(res.data);
     });
 

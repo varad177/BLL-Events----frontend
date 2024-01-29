@@ -216,7 +216,7 @@ const CreateEvents = () => {
                         </div>
 
                         <div className="col-md-6 space-y-4">
-                            <div className="relative w-[96%] mx-auto h-64 flex items-center justify-center bg-white border-grey border-4 hover:opacity-80 overflow-hidden">
+                            <div className="relative w-[96%] shadow-md mx-auto h-64 flex items-center justify-center bg-white border-grey border-4 hover:opacity-80 overflow-hidden">
                                 <label htmlFor="upload_banner">
                                     {
                                         previewImage ? <img
@@ -244,7 +244,7 @@ const CreateEvents = () => {
                                 name="heading"
                                 type="text"
                                 value={pass.heading}
-                                className="input-box w-full"
+                                className="input-box w-full shadow-md"
                                 placeholder="Enter The Event Heading"
                             />
 
@@ -252,7 +252,7 @@ const CreateEvents = () => {
                                 onChange={handleChange}
                                 name="address"
                                 value={pass.address}
-                                className="input-box w-full resize-none h-64"
+                                className="input-box shadow-md w-full resize-none h-64"
                                 placeholder="Enter The Event Address"
                             ></textarea>
                         </div>
@@ -263,7 +263,7 @@ const CreateEvents = () => {
                                     type="text"
                                     name="location"
                                     value={pass.location}
-                                    className="input-box w-full"
+                                    className="input-box shadow-md w-full"
                                     placeholder="Enter The Google Map Location URL"
                                 />
                             </div>
@@ -273,7 +273,7 @@ const CreateEvents = () => {
                                     type="date"
                                     name="date"
                                     value={pass.date}
-                                    className="input-box w-full"
+                                    className="input-box shadow-md w-full"
                                     placeholder="Enter The Google Map Location URL"
                                 />
                             </div>
@@ -282,7 +282,7 @@ const CreateEvents = () => {
                                 name="time"
                                 value={pass.time}
                                 type="text"
-                                className="input-box w-full"
+                                className="input-box shadow-md w-full"
                                 placeholder="Enter The Entry Time"
                             />
                             <input
@@ -290,7 +290,7 @@ const CreateEvents = () => {
                                 name="details"
                                 value={pass.details}
                                 type="text"
-                                className="input-box w-full "
+                                className="input-box shadow-md w-full "
                                 placeholder="Enter The Event Details URL"
                             />
                             <input
@@ -298,7 +298,7 @@ const CreateEvents = () => {
                                 name="mobno1"
                                 value={pass.mobno1}
                                 type="number"
-                                className="input-box w-full "
+                                className="input-box shadow-md w-full "
                                 placeholder="Enter The Mobile Number 1"
                             />
                             <input
@@ -306,7 +306,7 @@ const CreateEvents = () => {
                                 name="mobno2"
                                 value={pass.mobno2}
                                 type="number"
-                                className="input-box w-full "
+                                className="input-box shadow-md w-full "
                                 placeholder="Enter The Mobile Number 2"
                             />
                         </div>
@@ -317,7 +317,7 @@ const CreateEvents = () => {
                     <h1 className="md:text-3xl text-xl  text-gray-700 font-bold mt-8 text-center mx-auto">Write Tips And General Instruction And AnyThing You Want By Code Editor Placed Below </h1>
                 </div>
 
-                <div id="text-Editor" className="mt-8 border"></div>
+                <div id="text-Editor" className="mt-8 border shadow-md"></div>
 
                 {/* <div className='my-12 font-gelasio blog-page-content'>
                     {

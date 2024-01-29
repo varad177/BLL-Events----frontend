@@ -35,7 +35,8 @@ const ViesAttendees = () => {
   const [totalEntries, setTotalEntries] = useState(0);
 
   useEffect(() => {
-    api.get("/get-entries-count", { status: true }).then((res) => {
+    api.post("/get-entries-count", { status: true }).then((res) => {
+      console.log(res.data);
       setTotalEntries(res.data);
     });
 
@@ -94,6 +95,7 @@ const ViesAttendees = () => {
               type="text"
               placeholder="search"
               className="input-box"
+              autoComplete="off"
             />
           </div>
           <table className="w-full table-auto">
@@ -209,7 +211,7 @@ const ViesAttendees = () => {
                     <tr>
                       <td colSpan={7} className="border px-2 py-2">
                         <AnimationWrapper
-                          transition={{ duration: 1, delay: i * 0.1 }}
+                          
                         >
                           <p className="font-bold inline-block">Mobile No :</p>{" "}
                           {user.mobno}, <br></br>
