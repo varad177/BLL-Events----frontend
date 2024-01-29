@@ -80,13 +80,13 @@ const TaskAssignForm = () => {
             <Navbar />
 
             <AnimationWrapper>
-                <section className='w-full h-[100vh] bg-[#F5F7FF] p-8 -z-10 max-md:p-4'>
+                <section className='w-full h-full  bg-[#F5F7FF] p-8 -z-10 max-md:p-4'>
 
                     <div className='w-[96%] h-auto md:w-[80%] bg-white mx-auto rounded-md '>
                         <div className='flex flex-col items-center p-4  '>
                             <div className="w-full text-2xl flex justify-between max-md:flex-col max-md:items-center max-md:gap-4 ">
                                 <h1>Assign Task</h1>
-                                <button onClick={handleSubmit} className="btn">Save & Submit</button>
+                                <button onClick={handleSubmit} className="btn max-md:hidden">Save & Submit</button>
                             </div>
                             <h3 className='text-center text-xl font-bold max-md:mt-4'>IBIS Entry Pass</h3>
 
@@ -173,8 +173,10 @@ const TaskAssignForm = () => {
                                     Delete Events
                                 </label>
                             </div>
-                        </div>
 
+                        <button onClick={handleSubmit} className="btn md:hidden mt-4 ">Save & Submit</button>
+
+                        </div>
                     </div>
 
                 </section>

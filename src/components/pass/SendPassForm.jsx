@@ -165,12 +165,12 @@ const SendPassForm = () => {
         <>
             <Navbar />
             <AnimationWrapper>
-                <section className="w-[100%] flex justify-center h-screen bg-[#F5F7FF] ">
+                <section className="w-[100%] flex justify-center h-full p-4 bg-[#F5F7FF] ">
                     <div className=" flex shadow-md items-center justify-center flex-col w-[94%] md:w-[80%]  gap-2 md:gap-4 bg-white h-fit md:p-16 p-8 mt-20 rounded-2xl">
 
                         <div className="w-full text-2xl flex justify-between max-md:flex-col max-md:items-center max-md:gap-4">
                             <h1>Add Entry Pass</h1>
-                            <button onClick={handleSubmit} className="btn">Save And Send</button>
+                            <button onClick={handleSubmit} className="btn max-md:hidden">Save And Send</button>
                         </div>
 
                         <div className="mt-4 w-full md:w-[60%] shadow-md">
@@ -249,6 +249,7 @@ const SendPassForm = () => {
                                 </label>
                             </div>
                         </div>
+                        <button onClick={handleSubmit} className="btn md:hidden mt-4">Save And Send</button>
                     </div>
                 </section>
             </AnimationWrapper>

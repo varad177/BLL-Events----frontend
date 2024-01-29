@@ -78,7 +78,7 @@ const ResetPassWord = () => {
                         <div className='flex flex-col items-center p-4  '>
                             <div className="w-full text-2xl flex justify-between max-md:flex-col max-md:items-center max-md:gap-4  ">
                                 <h1>Reset Password</h1>
-                                <button onClick={handleSubmit} className="btn">submit</button>
+                                <button onClick={handleSubmit} className="btn max-md:hidden">submit</button>
                             </div>
 
                             <div className='p-8 flex items-center flex-col gap-8 max-md:w-full w-[50%] max-md:p-4'>
@@ -87,6 +87,7 @@ const ResetPassWord = () => {
                                 <input type="text" onChange={handleChange} value={pass.newPass} name='newPass' className='input-box w-full' placeholder='Enter Your New Password' />
 
                             </div>
+                            <button onClick={handleSubmit} className="btn md:hidden mt-4">submit</button>
                         </div>
                     </div>
 

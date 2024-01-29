@@ -22,6 +22,8 @@ import DeleteUser from "./components/User/DeleteUser";
 import EditEvents from "./components/Events/EditEvents";
 import DeleteEvents from "./components/Events/DeleteEvents";
 import ResetPassWord from "./components/User/ResetPassWord";
+import ForgotPassword from "./components/User/ForgotPassword";
+import ForgotResetPassword from "./components/User/ForgotResetPassword";
 
 export const UserContext = createContext({});
 
@@ -68,6 +70,9 @@ function App() {
           <Route path="/edit-event" element={<EditEvents />} />
           <Route path="/delete-event" element={<DeleteEvents />} />
           <Route path="/reset-password" element={<ResetPassWord />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-your-password" element={<ForgotResetPassword />} />
+
         </Routes>
       </Router>
     </UserContext.Provider>

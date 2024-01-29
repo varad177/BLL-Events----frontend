@@ -113,9 +113,9 @@ const AddUser = () => {
                 <section className="w-full flex justify-center h-screen bg-[#F5F7FF] ">
                     <div className=" flex shadow-md items-center justify-center flex-col w-[94%] md:w-[80%]  gap-2 md:gap-4 bg-white h-fit md:p-16 p-8 mt-20 rounded-2xl">
 
-                        <div className="w-full text-2xl flex justify-between max-md:flex-col max-md:items-center max-md:gap-4 ">
+                        <div className="w-full text-2xl flex justify-between max-md:flex-col max-md:items-center max-md:gap-4 mb-2 ">
                             <h1>Add User</h1>
-                            <button onClick={handleSubmit} className="btn">Save User</button>
+                            <button onClick={handleSubmit} className="btn max-md:hidden">Save User</button>
                         </div>
                         <div className="row w-full gap-2">
                             <input onChange={handleChange} className="input-box shadow-md col-md-6 col-sm-12 w-full  md:w-[47%]" value={user.fullname} type="text" name="fullname" placeholder="Enter The fullname" />
@@ -148,6 +148,7 @@ const AddUser = () => {
                                 </label>
                             </div>
                         </div>
+                            <button onClick={handleSubmit} className="btn md:hidden mt-4">Save User</button>
                     </div>
                 </section>
             </AnimationWrapper>

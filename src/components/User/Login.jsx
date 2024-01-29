@@ -5,7 +5,7 @@ import bgImg from '../../assets/sider1.jpg'
 import logo from '../../assets/bll-logo-black.svg'
 import toast from 'react-hot-toast'
 import api from '../../axios/axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from '../../App'
 
 const Login = () => {
@@ -41,10 +41,10 @@ const Login = () => {
 
 
         if (!email.length) {
-            toast.error("please enter the email")
+            return toast.error("please enter the email")
         }
         if (!password.length) {
-            toast.error("please enter the password")
+            return toast.error("please enter the password")
         }
 
         const loading = toast.loading("wait varification in the process")
@@ -52,40 +52,40 @@ const Login = () => {
         api.post('/login', {
             email, password
         }).then((res) => {
-           
 
 
-                if (res.status === 200) {
 
-                    const obj = {
-                        'token': res.data.access_token,
-                        'email': res.data.email,
-                        'tasks': res.data.tasks,
-                        '_id': res.data._id
-                    }
+            if (res.status === 200) {
 
-
-                    sessionStorage.setItem('user', JSON.stringify(obj))
-                    
-
-                    setUserAuth({
-                        'token': res.data.access_token,
-                        'email': res.data.email,
-                        'fullname': res.data.fullname,
-                        'role': res.data.role,
-                        'mobno': res.data.mobno,
-                        '_id': res.data._id,
-                        'tasks': res.data.tasks
-                    })
-                    toast.dismiss(loading)
-                    toast.success("login successfully")
-
-                    navigate('/')
+                const obj = {
+                    'token': res.data.access_token,
+                    'email': res.data.email,
+                    'tasks': res.data.tasks,
+                    '_id': res.data._id
                 }
-                else {
-                    toast.error("something went wrong")
-                }
-            
+
+
+                sessionStorage.setItem('user', JSON.stringify(obj))
+
+
+                setUserAuth({
+                    'token': res.data.access_token,
+                    'email': res.data.email,
+                    'fullname': res.data.fullname,
+                    'role': res.data.role,
+                    'mobno': res.data.mobno,
+                    '_id': res.data._id,
+                    'tasks': res.data.tasks
+                })
+                toast.dismiss(loading)
+                toast.success("login successfully")
+
+                navigate('/')
+            }
+            else {
+                toast.error("something went wrong")
+            }
+
 
         }).catch(({ response }) => {
 
@@ -104,7 +104,7 @@ const Login = () => {
 
     return (
         <section className='w-screen m-0'>
-            <div className='row max-h-[100vh] w-screen  '>
+            <div className='row min-h-[100vh] h-auto pb-4 w-screen  '>
                 <div className='col-lg-6  h-full '>
                     <div className='h-[15vh] shadow-md max-lg:w-[100vw]  flex items-center justify-center md:shadow-lg'>
                         <img src={logo} className='img-fluid' alt="loading" />
@@ -119,7 +119,7 @@ const Login = () => {
 
                     <form className='h-full w-full flex items-center justify-center'>
                         <div className='md:w-[60%] w-[80%] h-full flex items-center justify-center flex-col '>
-                            <div className='w-full flex flex-col justify-center mb-4'>
+                            <div className='w-full flex flex-col justify-center mb-2'>
                                 <p className='text-lg font-bold pb-[10px] '>email</p>
                                 <input ref={emailId} className='p-3 rounded-lg outline-none shadow-md focus:outline-none  bg-[#E8F0FE]' type="email" placeholder='email' name='email' />
                             </div>
@@ -132,9 +132,11 @@ const Login = () => {
                                 <button onClick={handleSubmit} className='btn m-0'>
                                     Sign In
                                 </button>
+                                <Link to={'/forgot-password'} className='mt-4'><p className='mt-2 text-red-600 font-bold text-sm cursor-pointer '>Forgot Password</p></Link>
                             </div>
 
                         </div>
+
                     </form>
 
 
