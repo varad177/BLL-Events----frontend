@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import api from "../../axios/axios";
 import toast from "react-hot-toast";
@@ -8,6 +8,8 @@ import Navbar from "../Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import AnimationWrapper from "../Animation-wrapper/AnimationWrapper";
 import { Pagination } from "@mui/material";
+import getUser from "../../axios/getUserFromSession";
+import { UserContext } from "../../App";
 
 const EditEvents = () => {
   const [passUser, setPassUser] = useState([]);
@@ -29,7 +31,10 @@ const EditEvents = () => {
 
   const [totalEntries, setTotalEntries] = useState(0);
 
+  let {userAuth , setUserAuth} = useContext(UserContext)
+
   useEffect(() => {
+    checkSignIn()
     api.post("/get-entries-count", { status: true }).then((res) => {
       setTotalEntries(res.data);
     });
@@ -40,7 +45,19 @@ const EditEvents = () => {
 
   const totalPages = Math.ceil(totalEntries / entriesPerPage);
 
+  const checkSignIn = async () => {
 
+    const data = await getUser();
+    if (data == false) {
+        return navigate('/login')
+    }
+
+    setUserAuth(data)
+
+    if (userAuth && userAuth.token == null) {
+        return navigate("/login");
+    }
+};
 
   const getAllEvents = () => {
     api.get('/get-all-events').then((res) => {

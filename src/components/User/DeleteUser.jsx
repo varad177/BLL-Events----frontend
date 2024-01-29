@@ -78,7 +78,7 @@ const DeleteUser = () => {
       })
       .catch(({ response: { data } }) => {
        
-        toast.error(`Error Occurred: ${data.message}`);
+        toast.error(`Error Occurred: ${data.error}`);
       });
   };
 

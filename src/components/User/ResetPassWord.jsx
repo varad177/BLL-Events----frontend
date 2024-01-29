@@ -1,15 +1,17 @@
 
 
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import api from '../../axios/axios'
 import { UserContext } from '../../App'
 import toast from 'react-hot-toast'
 import AnimationWrapper from '../Animation-wrapper/AnimationWrapper'
+import getUser from '../../axios/getUserFromSession'
+import { useNavigate } from 'react-router-dom'
 
 const ResetPassWord = () => {
 
-    let { userAuth } = useContext(UserContext)
+    let { userAuth  , setUserAuth} = useContext(UserContext)
 
     let [pass, setPass] = useState({
         currPass: "",
@@ -23,6 +25,29 @@ const ResetPassWord = () => {
 
     }
 
+    const navigate = useNavigate()
+   
+
+
+    useEffect(()=>{
+        checkSignIn()
+       
+
+    },[])
+
+    const checkSignIn = async () => {
+
+        const data = await getUser();
+        if (data == false) {
+            return navigate('/login')
+        }
+
+        setUserAuth(data)
+
+        if (userAuth && userAuth.token == null) {
+            return navigate("/login");
+        }
+    };
 
 
 

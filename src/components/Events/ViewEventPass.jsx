@@ -13,8 +13,6 @@ const ViewEventPass = () => {
 
   const editorContent = editor;
 
-
-
   let dynamicContent;
 
   if (editorContent) {
@@ -67,21 +65,12 @@ const ViewEventPass = () => {
     });
   }
 
-
-
   useEffect(() => {
     api.post("/get-pass-by-passId", { passId }).then((res) => {
       if (res.status === 200) {
-
-   
-       
         setPass(res.data);
-    
 
-        if (
-          res.data.editor &&
-          res.data.editor.length > 0
-        ) {
+        if (res.data.editor && res.data.editor.length > 0) {
           setEditor(res.data.editor[0]);
         } else {
           console.error("Editor data is not available.");
@@ -160,8 +149,7 @@ const ViewEventPass = () => {
                                     cellpadding="0"
                                     cellspacing="0"
                                     border="0"
-                                    classN
-                                    ="table"
+                                    classN="table"
                                   >
                                     <tbody>
                                       <tr>
@@ -181,7 +169,7 @@ const ViewEventPass = () => {
                                       </tr>
                                       <td height="15"></td>
 
-                                      <tr style={{ textAlign: "center" ,  }}>
+                                      <tr style={{ textAlign: "center" }}>
                                         <td
                                           style={{
                                             color: "#545454",
@@ -189,10 +177,9 @@ const ViewEventPass = () => {
                                             fontSize: "3em",
                                             fontWeight: 700,
                                             textTransform: "capitalize",
-
                                           }}
                                         >
-                                        Full Name
+                                          Full Name
                                         </td>
                                       </tr>
                                       <tr>
@@ -207,7 +194,7 @@ const ViewEventPass = () => {
                                             fontWeight: 700,
                                           }}
                                         >
-                                         User ID
+                                          User ID
                                         </td>
                                       </tr>
 
@@ -249,7 +236,6 @@ const ViewEventPass = () => {
                                       <tr>
                                         <hr />
                                         <td height="15"></td>
-                                        
                                       </tr>
                                       <tr style={{ textAlign: "center" }}>
                                         <td
@@ -264,7 +250,6 @@ const ViewEventPass = () => {
                                         </td>
                                       </tr>
                                       <td height="15"></td>
-                                      
 
                                       <tr style={{ textAlign: "center" }}>
                                         <td
@@ -363,11 +348,9 @@ const ViewEventPass = () => {
                                       <td height="15"></td>
                                       <tr>
                                         <hr />
-                                        
                                       </tr>
                                       <td height="15"></td>
 
-                                      
                                       <tr>
                                         <td
                                           style={{
@@ -378,7 +361,7 @@ const ViewEventPass = () => {
                                         >
                                           <p style={{ marginBottom: 0 }}>
                                             For any queries contact :
-                                            {data.mobno1} / {data.mobno2}
+                                            {data.mobno1} {data.mobno2 == 'null' ?"":" / "+data.mobno2}
                                           </p>
                                         </td>
                                       </tr>
@@ -387,7 +370,6 @@ const ViewEventPass = () => {
                                 </td>
                                 <td width="5%"></td>
                               </tr>
-                             
                             </tbody>
                           </table>
                         </td>
@@ -518,9 +500,7 @@ const ViewEventPass = () => {
                                             </span>
                                             <br />
                                             <span>
-                                              603, The corporate park, Plot 14
-                                              &amp; 15, Sector 18, Vashi, Navi
-                                              Mumbai-400705
+                                              {data.address}
                                             </span>
                                             <br />
                                             <span> </span>
@@ -543,8 +523,7 @@ const ViewEventPass = () => {
                                           // borderTop: '1px solid #000',}}
                                         >
                                           <p style={{ marginBottom: 0 }}>
-                                            For any queries contact : 79770
-                                            45636 / 85911 25238
+                                            For any queries contact :   {data.mobno1} {data.mobno2 == 'null' ?"":" / "+data.mobno2}
                                           </p>
                                         </td>
                                       </tr>

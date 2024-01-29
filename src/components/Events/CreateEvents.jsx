@@ -1,6 +1,6 @@
 // ... (other imports and code)
 
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import toast from "react-hot-toast";
 import api from "../../axios/axios";
@@ -8,6 +8,8 @@ import EditorJS from "@editorjs/editorjs";
 import { tools } from "./Tools";
 import { useNavigate, useParams } from "react-router-dom";
 import EventContent from "./EventContent";
+import { UserContext } from "../../App";
+import getUser from "../../axios/getUserFromSession";
 
 const CreateEvents = () => {
 
@@ -28,8 +30,14 @@ const CreateEvents = () => {
 
     const [editorInstance, setEditorInstance] = useState(null);
 
+    let {userAuth , setUserAuth} = useContext(UserContext)
+
 
     useEffect(() => {
+
+        checkSignIn()
+
+
         const fetchData = async () => {
             try {
                 if (passId) {
@@ -91,6 +99,20 @@ const CreateEvents = () => {
 
         fetchData();
     }, [passId]);
+
+    const checkSignIn = async () => {
+
+        const data = await getUser();
+        if (data == false) {
+            return navigate('/login')
+        }
+
+        setUserAuth(data)
+
+        if (userAuth && userAuth.token == null) {
+            return navigate("/login");
+        }
+    };
 
 
 

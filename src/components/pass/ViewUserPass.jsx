@@ -123,7 +123,10 @@ const ViewUserPass = () => {
             cellspacing="0"
             cellpadding="0"
             align="center"
-            background="https://ci3.googleusercontent.com/meips/ADKq_NYXOeCz-9wPU31clhgzOWutn2S7aUEANh0_qepRTG_eG8azn07FGUYRUClEppBEI4pfHTZJNu5UOZ2gMO_4CNq1x4zzr1KidZfXyaDOR58=s0-d-e1-ft#https://entrypass.bllconnect.org/assets/images/bgImg.jpeg"
+            style={{
+              backgroundImage: 'url("https://ci3.googleusercontent.com/meips/ADKq_NYXOeCz-9wPU31clhgzOWutn2S7aUEANh0_qepRTG_eG8azn07FGUYRUClEppBEI4pfHTZJNu5UOZ2gMO_4CNq1x4zzr1KidZfXyaDOR58=s0-d-e1-ft#https://entrypass.bllconnect.org/assets/images/bgImg.jpeg")'
+            }}
+
           >
             <tbody>
               <tr>
@@ -226,21 +229,29 @@ const ViewUserPass = () => {
                                         </td>
                                       </tr>
 
-                                      <tr>
-                                        <td height="15"></td>
-                                      </tr>
+                                     
                                       <tr style={{ textAlign: "center" }}>
                                         <td className="logo-wrapper">
                                           <img
                                             src={data.logourl}
                                             style={{
-                                              width: "100%",
+                                              width: "80%",
                                               height: "100%",
+                                              margin:'0 auto'
                                             }}
                                             className="img-fluid logo"
                                             alt="Logo"
                                           />
                                         </td>
+                                      </tr>
+                                      <tr>
+                                        <td  style={{
+                                            color: "#000",
+                                            lineHeight: "1.1em",
+                                            fontSize: "2em",
+                                            fontWeight: 700,
+                                            textAlign:"center"
+                                          }} >{data.heading}</td>
                                       </tr>
                                       <tr>
                                         <td height="15"></td>
@@ -387,7 +398,7 @@ const ViewUserPass = () => {
                                         >
                                           <p style={{ marginBottom: 0 }}>
                                             For any queries contact :
-                                            {data.mobno1} / {data.mobno2}
+                                            {data.mobno1} {data.mobno2 == 'null' ?"":" / "+data.mobno2}
                                           </p>
                                         </td>
                                       </tr>
@@ -413,7 +424,11 @@ const ViewUserPass = () => {
             cellspacing="0"
             cellpadding="0"
             align="center"
-            background="https://ci3.googleusercontent.com/meips/ADKq_NYXOeCz-9wPU31clhgzOWutn2S7aUEANh0_qepRTG_eG8azn07FGUYRUClEppBEI4pfHTZJNu5UOZ2gMO_4CNq1x4zzr1KidZfXyaDOR58=s0-d-e1-ft#https://entrypass.bllconnect.org/assets/images/bgImg.jpeg"
+            style={{
+              marginTop: '3em',
+              backgroundImage: 'url("https://ci3.googleusercontent.com/meips/ADKq_NYXOeCz-9wPU31clhgzOWutn2S7aUEANh0_qepRTG_eG8azn07FGUYRUClEppBEI4pfHTZJNu5UOZ2gMO_4CNq1x4zzr1KidZfXyaDOR58=s0-d-e1-ft#https://entrypass.bllconnect.org/assets/images/bgImg.jpeg")'
+            }}
+
           >
             <tbody>
               <tr>
@@ -527,9 +542,7 @@ const ViewUserPass = () => {
                                             </span>
                                             <br />
                                             <span>
-                                              603, The corporate park, Plot 14
-                                              &amp; 15, Sector 18, Vashi, Navi
-                                              Mumbai-400705
+                                             {data.address}
                                             </span>
                                             <br />
                                             <span> </span>
@@ -552,8 +565,8 @@ const ViewUserPass = () => {
                                         // borderTop: '1px solid #000',}}
                                         >
                                           <p style={{ marginBottom: 0 }}>
-                                            For any queries contact : 79770
-                                            45636 / 85911 25238
+                                            For any queries contact : {data.mobno1} {data.mobno2 == 'null' ?"":" / "+data.mobno2}
+                                        
                                           </p>
                                         </td>
                                       </tr>

@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import AnimationWrapper from "../Animation-wrapper/AnimationWrapper";
 import { Pagination } from "@mui/material";
 import { UserContext } from "../../App";
+import getUser from "../../axios/getUserFromSession";
 
 const DeleteEvents = () => {
   const [passUser, setPassUser] = useState([]);
@@ -30,9 +31,10 @@ const DeleteEvents = () => {
 
   const [totalEntries, setTotalEntries] = useState(0);
 
-  const {userAuth} = useContext(UserContext)
+  const {userAuth , setUserAuth} = useContext(UserContext)
 
   useEffect(() => {
+    checkSignIn()
     api.post("/get-entries-count", { status: true }).then((res) => {
       setTotalEntries(res.data);
     });
@@ -43,6 +45,20 @@ const DeleteEvents = () => {
 
   const totalPages = Math.ceil(totalEntries / entriesPerPage);
 
+
+  const checkSignIn = async () => {
+
+    const data = await getUser();
+    if (data == false) {
+        return navigate('/login')
+    }
+
+    setUserAuth(data)
+
+    if (userAuth && userAuth.token == null) {
+        return navigate("/login");
+    }
+};
 
 
   const getAllEvents = () => {
